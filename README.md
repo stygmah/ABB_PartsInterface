@@ -17,7 +17,9 @@ npm install
 
 Once the dependencies are installed, you can start the project by running:
 
-```npm run start```
+```
+npm run start
+```
 
 
 This will start a development server and open the application in your default web browser.

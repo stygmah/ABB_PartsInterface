@@ -1,24 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import  Part from './components/Part';
+import { Feature } from './interfaces/feature';
+import { createRandomFeature, updateFeatures } from './utils/dummyGenerator';
+
+interface Part {
+  features: Feature[],
+  partName: string
+}
+
+const dummyPart:Part = {
+  features: [
+    createRandomFeature('random feature'),
+    createRandomFeature('random feature'),
+    createRandomFeature('random feature'),
+    createRandomFeature('random feature'),
+    createRandomFeature('random feature'),
+    createRandomFeature('random feature'),
+  ],
+  partName: 'partName',
+}
+
 
 function App() {
+  const [part, setPart] = useState(dummyPart);
+
+  useEffect(()=>{
+    const intervalId = window.setInterval(()=>{
+      const oldFeatures = part.features;
+      setPart({
+        ...part,
+        features: updateFeatures(oldFeatures),
+      })
+    }, 10000);
+    return () => clearInterval(intervalId);
+  },[]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        part ?       
+        <Part 
+          features={part.features}
+          partName={part.partName}
+        />:
+        null
+      }
     </div>
   );
 }

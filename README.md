@@ -8,13 +8,17 @@ This project is a simple simulation of features and their data, created using Re
 
 To get started, clone the repository and install the dependencies with npm:
 
-### `git clone https://github.com/username/repo.git`
-### `cd repo`
-### `npm install`
+
+```
+git clone https://github.com/stygmah/ABB_PartsInterface
+cd ABB_PartsInterface
+npm install
+
+```
 
 Once the dependencies are installed, you can start the project by running:
 
-### `npm run start`
+```npm run start```
 
 
 This will start a development server and open the application in your default web browser.

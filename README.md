@@ -13,7 +13,6 @@ To get started, clone the repository and install the dependencies with npm:
 git clone https://github.com/stygmah/ABB_PartsInterface
 cd ABB_PartsInterface
 npm install
-
 ```
 
 Once the dependencies are installed, you can start the project by running:
